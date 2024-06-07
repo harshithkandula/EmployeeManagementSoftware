@@ -1,0 +1,7 @@
+.horizontal-nav{
+    list-style-type: none;
+    float: left;
+    display: flex;
+    margin: 10px;
+    
+}
