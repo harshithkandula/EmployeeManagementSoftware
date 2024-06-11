@@ -22,11 +22,24 @@ export class EmployeeService {
         
    }
 
-   getEmployeesList(): Observable<Employee[]>{
-    return this.httpClient.get<{employees: Employee[]}>(this.baseUrl).pipe(map(response => response.employees));
-   }
+   /*getEmployeesList(): Observable<{employees: Employee[]}>{
+    //return this.httpClient.get<{employees: Employee[]}>(this.baseUrl).pipe(map(response => response.employees));
+     return this.httpClient.get<{employees: Employee[]}>(this.baseUrl);
+   }*/
 
-   registerEmployee(employee: Employee){
+     getEmployeesList(): Observable<Employee[]>{
+      
+       return this.httpClient.get<Employee[]>(this.baseUrl);
+     }
+
+   /*registerEmployee(employee: Employee){
      return this.httpClient.post<{employee: Employee}>(this.registerUrl, this.employee);
-   }
+   }*/
+
+
+     registerEmployee(employee: Employee): Observable<Employee>{
+      return this.httpClient.post<Employee>(this.registerUrl, employee);
+    }
+
+
 }

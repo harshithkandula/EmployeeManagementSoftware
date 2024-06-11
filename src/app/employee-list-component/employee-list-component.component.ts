@@ -14,7 +14,8 @@ import { RouterLink } from '@angular/router';
 })
 export class EmployeeListComponentComponent implements OnInit{
       
-      employees:Employee[]=[];
+      //employees:Employee[]=[];
+      employees:Employee[] | undefined;
       employeeService: EmployeeService;
 
       constructor(employeeService: EmployeeService){
@@ -23,8 +24,9 @@ export class EmployeeListComponentComponent implements OnInit{
 
       ngOnInit(): void {
         
-        this.employeeService.getEmployeesList().subscribe(employees => {
-          this.employees = employees;
+        this.employeeService.getEmployeesList().subscribe((response) => {
+          this.employees = response;
+          console.log(this.employees)
         },
         error =>{
           console.error('An error has occured fetching employees list ', error);

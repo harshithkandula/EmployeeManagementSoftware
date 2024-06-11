@@ -1,16 +1,16 @@
 export class Employee {
 
-    id:BigInt;
-    firstName: string;
-    lastName: string;
-    emailId: string;
-    phNo: string;
-    role: string;
-    salary: number;
-    workExperience: number;
-    joiningDate: string;
+    id!:BigInt;
+    firstName!: string;
+    lastName!: string;
+    emailId!: string;
+    phNo!: string;
+    role!: string;
+    salary!: number;
+    workExperience!: number;
+    joiningDate!: string;
 
-    constructor(id: BigInt, firstName: string, lastName: string, emailId: string, phNo: string, role: string, salary: number, workExperience: number, joiningDate: string){
+   /*constructor(id: BigInt, firstName: string, lastName: string, emailId: string, phNo: string, role: string, salary: number, workExperience: number, joiningDate: string){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,7 +21,13 @@ export class Employee {
         this.workExperience = workExperience;
         this.joiningDate = joiningDate;
 
-    }
+    }  */
+
+        constructor(){
+            
+        }
+
+    
 
     
 }

@@ -16,16 +16,18 @@ export class CreateEmployeeComponent implements OnInit{
 
   /*employeeRegisterForm!: FormGroup;*/
   id!: BigInt;
-  firstName!: string;
-  lastName!: string;
-  emailId!: string;
-  phNo!: string;
+  first_name!: string;
+  last_name!: string;
+  email_id!: string;
+  ph_no!: string;
   role!: string;
   salary!:number;
-  workExperience!:number;
-  joiningDate!:string;
+  work_exp!:number;
+  join_date!:string; 
 
-  employee: Employee = new Employee(this.id, this.firstName, this.lastName, this.emailId, this.phNo, this.role, this.salary, this.workExperience, this.joiningDate);
+  //employee: Employee = new Employee(this.id, this.first_name, this.last_name, this.email_id, this.ph_no, this.role, this.salary, this.work_exp, this.join_date);
+  employee: Employee = new Employee();
+
   employeeService!: EmployeeService;
 
   router: Router;
@@ -38,6 +40,7 @@ export class CreateEmployeeComponent implements OnInit{
     );*/
     this.employeeService= employeeService;
     this.router = router;
+    
   }
 
   ngOnInit():void{
@@ -54,6 +57,7 @@ export class CreateEmployeeComponent implements OnInit{
 
     this.employeeService.registerEmployee(this.employee).subscribe(response => {
       console.log(response);
+      this.employee = new Employee();
     },
     error =>{
       console.log('Unable to register employee ', error);
@@ -63,6 +67,10 @@ export class CreateEmployeeComponent implements OnInit{
    this.gotToEmployeeList();
   }
 
+  onSubmitData():void {
+    this.registerClient();
+  }
 
+  
 
 }
