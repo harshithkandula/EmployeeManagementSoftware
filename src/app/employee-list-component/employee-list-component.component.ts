@@ -3,12 +3,13 @@ import { Employee } from '../employee';
 import { CommonModule } from '@angular/common';
 import { EmployeeService } from '../employee.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
 
 @Component({
   selector: 'app-employee-list-component',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink],
+  imports: [CommonModule, HttpClientModule, RouterLink, UpdateEmployeeComponent],
   templateUrl: './employee-list-component.component.html',
   styleUrl: './employee-list-component.component.css'
 })
@@ -17,9 +18,12 @@ export class EmployeeListComponentComponent implements OnInit{
       //employees:Employee[]=[];
       employees:Employee[] | undefined;
       employeeService: EmployeeService;
-
-      constructor(employeeService: EmployeeService){
+      private router!: Router;
+      id!: BigInt;
+      
+      constructor(employeeService: EmployeeService, router: Router){
            this.employeeService = employeeService;
+           this.router = router;
       }
 
       ngOnInit(): void {
@@ -35,5 +39,20 @@ export class EmployeeListComponentComponent implements OnInit{
         );
       }
 
+      updateEmployee(id: BigInt){
+        this.router.navigate(['update-employee', id]);
+      }
+
+      deletingEmployee(id: BigInt){
+        this.id = id;
+        this.employeeService.deleteEmployee(this.id);
+        console.log("Deleting employee with ID"+id);
+        this.navigateToEmployeeList();
+      }
+
+      navigateToEmployeeList(){
+        this.router.navigate(['employee-registry']);
+      }
+      
       
 }

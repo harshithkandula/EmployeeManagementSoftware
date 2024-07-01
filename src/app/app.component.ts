@@ -4,13 +4,14 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { EmployeeListComponentComponent } from "./employee-list-component/employee-list-component.component";
 import { routes } from './app.routes'
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, EmployeeListComponentComponent, CreateEmployeeComponent, RouterModule]
+    imports: [CommonModule, RouterOutlet, EmployeeListComponentComponent, CreateEmployeeComponent, UpdateEmployeeComponent, RouterModule]
 })
 export class AppComponent {
   title = 'employee-management-portal';

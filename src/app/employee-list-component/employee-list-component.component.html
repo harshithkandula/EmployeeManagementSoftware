@@ -12,6 +12,7 @@
             <th>Salary</th>
             <th>Work Experience</th>
             <th>Joining Date</th>
+            <th>Actions</th>
         </tr>
     </thead>
     
@@ -25,6 +26,7 @@
         <td>{{employee.salary}}</td>
         <td>{{employee.workExperience}}</td>
         <td>{{employee.joiningDate}}</td>
+        <td><tr><button (click)="updateEmployee(employee.id)">Update</button></tr><tr><button (click)="deletingEmployee(employee.id)">Delete</button></tr></td>
     </tr>
 </table>
 

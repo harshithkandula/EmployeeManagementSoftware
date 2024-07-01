@@ -15,6 +15,7 @@ export class EmployeeService {
   
   private baseUrl = "http://localhost:8080/registry/employees/all"; 
   private registerUrl = "http://localhost:8080/registry/employees/add-employee";
+  private empdUrl = "";
   public httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
@@ -41,5 +42,18 @@ export class EmployeeService {
       return this.httpClient.post<Employee>(this.registerUrl, employee);
     }
 
+    getEmployeeDetails(id: BigInt):Observable<Employee>{
+      return this.httpClient.get<Employee>("http://localhost:8080/registry/employees/"+id+"");
+    }
+
+    updateEmployee(id: BigInt, employee: Employee): Observable<Employee>{
+      return this.httpClient.put<Employee>("http://localhost:8080/registry/employees/edit-employee/"+id+"", employee);
+    }
+
+    deleteEmployee(id: BigInt): void{
+       this.httpClient.delete<Employee>("http://localhost:8080/registry/employees/delete-employee/"+id+"");
+    }
+
+    
 
 }

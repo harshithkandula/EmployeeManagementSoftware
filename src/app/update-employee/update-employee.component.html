@@ -1,0 +1,46 @@
+<p>Update Employee</p>
+
+<form (ngSubmit)="OnSubmit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="first_name" class="form-control" [(ngModel)]="employee.firstName" value="employee.firstName">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="last_name" class="form-control" [(ngModel)]="employee.lastName">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="emailId">Email ID</label>    
+        <input type="email" id="emailId" name="email_id" class="form-control" [(ngModel)]="employee.emailId">   
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="phNo">Phone Number</label>
+        <input type="text" id="phNo" name="ph_no" class="form-control" [(ngModel)]="employee.phNo">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="role">Designation</label>
+        <input type="text" id="role" name="role" class="form-control" [(ngModel)]="employee.role"> 
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input type="number" id="salary" name="salary" class="form-control" [(ngModel)]="employee.salary">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="workExperience">Work Experience</label>
+        <input type="number" id="workExperience" name="work_exp" class="form-control" [(ngModel)]="employee.workExperience">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="joiningDate">Joining Date</label>
+        <input type="date" id="joiningDate" name="join_date" class="form-control" [(ngModel)]="employee.joiningDate">
+    </div>
+    <br>
+
+    <button  type="submit">Register</button>
+</form>
